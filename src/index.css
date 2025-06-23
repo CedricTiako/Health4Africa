@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  /* Primary Colors */
+  --color-primary: #1B1464;     /* Deep blue */
+  --color-secondary: #F4A300;   /* Gold */
+  --color-accent: #2E8B57;      /* Green */
+  --color-dark: #0A0A2A;        /* Dark blue */
+  --color-light: #F8F5F0;       /* Off-white */
+  
+  /* Supporting Colors */
+  --color-red: #B22222;         /* Earth red */
+  --color-brown: #8B4513;       /* Earth brown */
+  --color-yellow: #FFD700;      /* Gold yellow */
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #1B1464 0%, #4A3A8C 100%);
+  --gradient-secondary: linear-gradient(135deg, #F4A300 0%, #FFD700 100%);
+  --gradient-accent: linear-gradient(135deg, #2E8B57 0%, #3CB371 100%);
+  --gradient-health: linear-gradient(135deg, #1B1464 0%, #2E8B57 100%);
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 12px rgba(27, 20, 100, 0.1);
+  --shadow-medium: 0 8px 24px rgba(27, 20, 100, 0.15);
+  --shadow-strong: 0 16px 48px rgba(27, 20, 100, 0.2);
+  --blur-backdrop: blur(20px);
+}
+
+/* Dark Mode Variables */
+:root[data-theme="dark"] {
+  --color-primary: #4A3A8C;     /* Lighter blue */
+  --color-secondary: #FFD700;   /* Brighter gold */
+  --color-accent: #3CB371;      /* Lighter green */
+  --color-dark: #0A0A2A;        /* Dark blue */
+  --color-light: #F8F5F0;       /* Off-white */
+  
+  --gradient-primary: linear-gradient(135deg, #4A3A8C 0%, #6A5ACD 100%);
+  --gradient-secondary: linear-gradient(135deg, #FFD700 0%, #FFEC8B 100%);
+  --gradient-accent: linear-gradient(135deg, #3CB371 0%, #66CDAA 100%);
+  --gradient-health: linear-gradient(135deg, #4A3A8C 0%, #3CB371 100%);
+  
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-strong: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* Base Styles */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Improved Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* African Pattern Backgrounds */
+.african-pattern-1 {
+  /* Kente-inspired pattern */
+  background-color: var(--color-primary);
+  background-image: 
+    linear-gradient(90deg, var(--color-secondary) 1px, transparent 1px),
+    linear-gradient(0deg, var(--color-secondary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-secondary) 1px, transparent 1px),
+    linear-gradient(0deg, var(--color-secondary) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 40px 40px, 40px 40px;
+  background-position: 0 0, 0 0, 20px 20px, 20px 20px;
+}
+
+.african-pattern-2 {
+  /* Bogolan-inspired pattern */
+  background-color: var(--color-light);
+  background-image: 
+    linear-gradient(45deg, var(--color-dark) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-dark) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color-dark) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--color-dark) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
+
+.african-pattern-3 {
+  /* Adinkra-inspired symbols */
+  background-color: var(--color-light);
+  background-image: 
+    radial-gradient(circle at 30% 30%, var(--color-primary) 2px, transparent 2px),
+    radial-gradient(circle at 70% 70%, var(--color-secondary) 2px, transparent 2px),
+    radial-gradient(circle at 30% 70%, var(--color-accent) 2px, transparent 2px),
+    radial-gradient(circle at 70% 30%, var(--color-red) 2px, transparent 2px);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px, 0 40px, 40px 0;
+  opacity: 0.9;
+}
+
+.african-pattern-4 {
+  /* Modern geometric pattern */
+  background-color: var(--color-primary);
+  background-image: 
+    linear-gradient(45deg, var(--color-secondary) 10%, transparent 10%),
+    linear-gradient(-45deg, var(--color-secondary) 10%, transparent 10%),
+    linear-gradient(45deg, transparent 90%, var(--color-secondary) 90%),
+    linear-gradient(-45deg, transparent 90%, var(--color-secondary) 90%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  opacity: 0.9;
+}
+
+.african-pattern-5 {
+  /* Textile weave pattern */
+  background-color: var(--color-secondary);
+  background-image: 
+    linear-gradient(90deg, var(--color-primary) 1px, transparent 1px),
+    linear-gradient(0deg, var(--color-primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.9;
+}
+
+/* Text Styles */
+.text-pattern-1 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-pattern-2 {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn-african {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
+  background: transparent;
+  z-index: 1;
+}
+
+.btn-african:hover {
+  color: var(--color-light);
+  border-color: var(--color-primary);
+}
+
+.btn-african::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--gradient-secondary);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.btn-african:hover::before {
+  width: 100%;
+}
+
+/* Card Styles */
+.card-african {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(244, 163, 0, 0.2);
+}
+
+.card-african:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(27, 20, 100, 0.2);
+}
+
+.card-african::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(27, 20, 100, 0.1) 0%, rgba(244, 163, 0, 0.05) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Glass Morphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: var(--blur-backdrop);
+  -webkit-backdrop-filter: var(--blur-backdrop);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modern Button Styles */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-health {
+  background: var(--gradient-health);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(79, 70, 229, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(79, 70, 229, 0.8); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Modern Card Hover Effects */
+.card-modern {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.card-modern:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Smooth Reveal Animation */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: reveal 0.8s ease-out forwards;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+}
+
+/* Utility Classes */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(79, 70, 229, 0.3);
+}
+
+.dark .shadow-glow {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+.shadow-glow-accent {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.3);
+}
+
+.dark .shadow-glow-accent {
+  box-shadow: 0 0 30px rgba(251, 146, 60, 0.3);
+}
+
+/* Theme Transition */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 767px) {
+  .card-modern:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .btn-modern:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #000;
+  }
+  
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #fff;
+  }
+}
+
+/* Focus States */
+.focus-modern:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+  border-color: #4f46e5;
+}
+
+.dark .focus-modern:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+  border-color: #6366f1;
+}
+
+/* Loading States */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .shimmer {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+}
+
+/* Section Spacing */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Improved Button Styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-accent-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-glow transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply border-2 border-primary-600 text-primary-600 dark:text-primary-400 font-semibold py-3 px-6 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300;
+}
+
+/* Enhanced Typography Scale */
+.text-display {
+  @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight;
+}
+
+.text-heading {
+  @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold;
+}
+
+.text-subheading {
+  @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold;
+}
+
+.text-body-large {
+  @apply text-lg lg:text-xl xl:text-2xl leading-relaxed;
+}
+
+.text-body {
+  @apply text-base lg:text-lg xl:text-xl leading-relaxed;
+}
+
+/* Container Improvements */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1280px;
+}
+
+/* XL and larger screens container */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1792px;
+  }
+}
+
+/* Grid Improvements */
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+/* Spacing Utilities */
+.section-padding {
+  @apply py-16 lg:py-20 xl:py-24 2xl:py-32;
+}
+
+.content-padding {
+  @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+}
+
+/* Animation Utilities */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Large Screen Optimizations */
+@media (min-width: 1280px) {
+  /* Better spacing for XL screens */
+  .xl-spacing {
+    @apply space-y-8 xl:space-y-12;
+  }
+  
+  /* Enhanced grid layouts */
+  .xl-grid-enhanced {
+    @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5;
+  }
+  
+  /* Improved text scaling */
+  .xl-text-scale {
+    @apply text-base lg:text-lg xl:text-xl 2xl:text-2xl;
+  }
+}
+
+/* Ultra-wide screen support */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+  }
+  
+  /* Even larger text for ultra-wide screens */
+  .text-display {
+    @apply 2xl:text-9xl;
+  }
+  
+  .text-heading {
+    @apply 2xl:text-6xl;
+  }
+}
